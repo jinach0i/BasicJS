@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{background-color: lightpink; width: 100px; height: 100px; border: 1px inset palevioletred; margin: 5px auto;}
+        div.target{background-color: royalblue;}
+        aside{position: fixed; top: 1rem; right: 1rem;}
+    </style>
+</head>
+<body>
+    <aside>
+        <button class="scl-by">y축 100px씩 이동(window.scrollBy(x,y))</button>
+        <button class="scl-to">y축 100px로 이동(window.scroll(x,y)or window.scrollTo(x,y))</button>
+        <button class="scl-into">특정  target으로 이동</button>
+    </aside>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="target"></div>
+    <div></div>
+    <script>
+        const tg = document.querySelector('.target');
+        tg.addEventListener('click',(event)=>{
+            const rect = tg.getBoundingClientRect();
+            console.log(rect);
+            // 문자템플릿:
+            // page=문서의 시작점부터 계산,client는 windows에서 계산:
+            console.log(`pageX pageY: ${event.pageX} , ${event.pageY}`);
+            console.log(`clientX clientY: ${event.clientX}, ${event.clientY}`);
+        });
+        const scrollBy = document.querySelector('.scl-by'),
+        scrollTo = document.querySelector('.scl-to'),
+        scrollInto = document.querySelector('.scl-into');
+        scrollBy.addEventListener('click', () => {
+            window.scrollBy({
+                top: 100,
+                left: 0,
+                behavior: 'smooth'
+            });
+        })
+        scrollTo.addEventListener('click', () => {
+            window.scroll({
+                top: 200,
+                left: 0,
+                behavior: 'smooth'
+            });
+        })
+        scrollInto.addEventListener('click', () => {
+            tg.scrollIntoView(false);
+        })
+    </script>
+</body>
+</html>

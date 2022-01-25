@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실1 윈도우 사이즈 측정(4 ways)</title>
+    <script defer>
+        const now = new Date();
+        // setInterval(() => {
+        //     location.reload();
+        // }, 1000);
+        document.write('window.screen.width : height = ' + window.screen.width + ' : ' + window.screen.height + '<br>');
+        document.write('window.outerwidth : outerheight = ' + window.outerWidth + ' : ' + window.outerHeight + '<br>');
+        document.write('window.screen.innerWidth : innerHeight = ' + window.innerWidth + ' : ' + window.innerHeight + '<br>');
+        document.write('window.screen.width : height =' + document + ' : ' + window.screen.height + '<br>');
+        document.write('지금 시간: ' + now.getFullYear() + '년' + now.getMonth() + '월' + now.getDate() + '일' + now.getHours() + '시' + now.getMinutes() + '시' + now.getSeconds() + '초' + '<br>');
+        // Answer:
+        window.addEventListener('resize', () => {
+            console.log(
+                `window.screen: ${window.screen.width}, ${window.screen.height}`);
+            
+        })
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>윈도우 사이즈 측정 해주는 애들 목록</h1>
+        <h2></h2>
+        <ul>
+            <li>window.screen = browser 안(본면)팍=your monitor's size</li>
+            <li>window.outer = browser 내부 전체(본면)(+url bar, tab's bar)</li>
+            <li>window.inner = browser 내부 중 page 전체(본문+스크롤바)(including scroll,of course)</li>
+            <li>documentElement.client.Width = browser 내부 page 내 순수 본문(-scroll 제외)</li>
+        </ul>
+    </div>
+</body>
+</html>

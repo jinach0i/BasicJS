@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림 순서에 주목할 것</title>
+    <style>
+    </style>
+    <script src="load_test.js" defer></script>
+</head>
+<body>
+    <div id="wrap">
+
+    </div>
+    <script>
+        // load는 resource(html,css,js 등)을 다 불러오고 나서;
+        window.addEventListener('load', () => {
+            alert('load');
+        })
+        // DOMContentLoaded는 doc(html) 후 바로;
+        window.addEventListener('DOMContentLoaded', () => {
+            alert('DOMContentLoaded');
+        })
+    </script>
+</body>
+</html>
